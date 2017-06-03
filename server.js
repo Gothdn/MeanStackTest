@@ -5,13 +5,18 @@ var express        = require('express');
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var mongoose = require('mongoose');
-var morgan          = require('morgan');
+var mongoose       = require('mongoose');
+var morgan         = require('morgan');
 
 // configuration ===========================================
 
 // config files
 var db = require('./config/db');
+
+var ENV = app.get('env');
+console.log(ENV);
+
+console.log('Running in ' + app.get('env') + ' environment...');
 
 // set our port
 var port = process.env.PORT || 8080; 
@@ -38,7 +43,7 @@ app.use(express.static(__dirname + '/public'));
 
 // routes ==================================================
 
-var routes = require('./app/routes'); // configure our routes
+var routes = require('./app/route/index'); // configure our routes
 app.use(morgan('dev'));
 app.use('/', routes);
 

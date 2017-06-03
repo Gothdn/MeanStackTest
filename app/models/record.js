@@ -1,7 +1,6 @@
-// app/models/nerd.js
-// grab the mongoose module
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
 var recordSchema = new Schema({
     name : {type : String, default: ''},
     desc : {type : String, default: ''},
@@ -17,8 +16,6 @@ recordSchema.pre('save', function(next) {
     next();
 });
 
-// define our nerd model
-// module.exports allows us to pass this to other files when it is called
 var Record = mongoose.model('Record', recordSchema);
 
 module.exports = Record;
