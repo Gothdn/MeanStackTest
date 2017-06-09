@@ -35,7 +35,6 @@ router.get('/activate/:id/:hashed', function(req, res) {
             if (err)
                 res.send(err);
             else
-                console.log(user);
                 if (user) {
                     user.status = 'activated';
                     user.save(function(err) {

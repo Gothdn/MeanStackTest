@@ -1,5 +1,42 @@
 <div class="jumbotron text-center">
-    <h1>Nerds and Proud</h1>
-
-    <p>{{ tagline }}</p>
+    <h1>Permission matrix</h1>
+    <div class="container" ng-init=init()>
+        <div>
+            <table class="col-md-12" >
+                <tr>
+                    <th class="col-md-4">Name</th>
+                    <th class="col-md-4" ng-repeat="permission in permissions">
+                		{{permission.name}}
+                    </th>
+                    <th class="col-md-4">Total</th>
+                    <th class="col-md-4"></th>
+                    <th class="col-md-4"></th>
+                </tr>
+                <tr ng-repeat="role in roles">
+                    <td class="col-md-4">{{ role.name }}</td>
+                    <td class="col-md-4" ng-repeat="permission in role.permissionTable">
+                    	<input 
+                    		type="checkbox" 
+            		    	ng-model = "permission.has">
+                    </td>
+                    <td class="col-md-4" ng-value="role.newPermission = getPermissionValue(role)">
+                    	{{role.newPermission}}
+                    </td>
+                    <td class="col-md-4">
+                    	<button ng-click=updateRolePermission(role)>Save</button>
+                    </td>
+                    <td class="col-md-4">
+                    	<button>Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <form>
+                        <td><input ng-model="newRole.name"></td>
+                        <td><input ng-model="newRole.desc"></td>
+                        <td><button type="submit" ng-click="addRole()">Add</button></td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

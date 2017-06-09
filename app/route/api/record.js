@@ -12,7 +12,7 @@ router.post('', function(req, res) {
         if (err) 
             res.send(err);
         else
-            res.send({message: "ok"});
+            res.send({message: "new record created"});
     });
 });
 
@@ -21,7 +21,7 @@ router.delete('/:id', function(req,res) {
         if (err) 
             res.send(err);
         else
-            res.send({message: "ok"});
+            res.send({message: "record deleted"});
     });
 });
 

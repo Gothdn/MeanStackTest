@@ -23,7 +23,7 @@
         <script src="js/app.js"></script>
     </head>
     <body ng-app="sampleApp" ng-controller="MainController">
-        <div class="container" ng-init=getRecords()>
+        <div class="container">
 
             <!-- HEADER -->
             <nav class="navbar navbar-inverse">
@@ -36,27 +36,6 @@
                     <li><a href="/nerds">Nerds</a></li>
                 </ul>
             </nav>
-
-            <div>
-                <table class="col-md-12" >
-                    <tr>
-                        <th class="col-md-4">Name</th>
-                        <th class="col-md-4">Desc</th>
-                        <th></th>
-                    </tr>
-                    <tr ng-repeat="record in records" ng-click="deleteRecord(record)">
-                        <td class="col-md-4">{{ record.name }}</td>
-                        <td class="col-md-4">{{ record.desc }}</td>
-                    </tr>
-                    <tr>
-                        <form>
-                            <td><input ng-model="record.name"></td>
-                            <td><input ng-model="record.desc"></td>
-                            <td><button type="submit" ng-click="addRecord()">Add</button></td>
-                        </form>
-                    </tr>
-                </table>
-            </div>
         </div>
         <br>
 

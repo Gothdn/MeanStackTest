@@ -1,7 +1,24 @@
 <div class="jumbotron text-center">
-    <h1>Home Page 4 Life</h1>
-    
-    <h1>Hello {{user}}</h1>
-
-    <p>{{ tagline }}</p>
+    <div class="container" ng-init=getRecords()>
+        <div>
+            <table class="col-md-12" >
+                <tr>
+                    <th class="col-md-4">Name</th>
+                    <th class="col-md-4">Desc</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="record in records" ng-click="deleteRecord(record)">
+                    <td class="col-md-4">{{ record.name }}</td>
+                    <td class="col-md-4">{{ record.desc }}</td>
+                </tr>
+                <tr>
+                    <form>
+                        <td><input ng-model="record.name"></td>
+                        <td><input ng-model="record.desc"></td>
+                        <td><button type="submit" ng-click="addRecord()">Add</button></td>
+                    </form>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>
